@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>Command CintaDeOpciones_Revit</Text>
+    <Description>Some description for CintaDeOpciones_Revit</Description>
+    <Assembly>CintaDeOpciones_Revit.dll</Assembly>
+    <FullClassName>CintaDeOpciones_Revit.Command</FullClassName>
+    <ClientId>a7b1abca-1420-4e60-940d-e02966ea7925</ClientId>
+    <VendorId>com.typepad.thebuildingcoder</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>Application CintaDeOpciones_Revit</Name>
+    <Assembly>CintaDeOpciones_Revit.dll</Assembly>
+    <FullClassName>CintaDeOpciones_Revit.App</FullClassName>
+    <ClientId>22699bec-017f-4f1e-a5f8-b27a5a5f52ec</ClientId>
+    <VendorId>com.typepad.thebuildingcoder</VendorId>
+    <VendorDescription>The Building Coder, http://thebuildingcoder.typepad.com</VendorDescription>
+  </AddIn>
+</RevitAddIns>
