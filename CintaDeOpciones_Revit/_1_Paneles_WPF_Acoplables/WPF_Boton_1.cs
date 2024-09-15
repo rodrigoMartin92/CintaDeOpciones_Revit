@@ -10,6 +10,11 @@ using System.Threading.Tasks;
 using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.UI.Selection;
 using System.Diagnostics;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
+
 #endregion
 
 namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
@@ -24,9 +29,33 @@ namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
         {
             UIApplication uiapp = commandData.Application;
             UIDocument uidoc = uiapp.ActiveUIDocument;
-            Application app = uiapp.Application;
+            Autodesk.Revit.ApplicationServices.Application app = uiapp.Application;
             Document doc = uidoc.Document;
-            TaskDialog.Show("WPF_Boton_1", "WPF_Boton_1");
+
+            try
+            {
+                //Construimos el DockablePaneId con el mismo GUID. Considere establecer una const
+                DockablePaneId dpid = new DockablePaneId(new Guid("{77C963CE-B7CA-426A-8D51-6E8254D21199}"));
+
+                //Recuperamos el Panel desde la UIApplication
+                DockablePane dp = uiapp.GetDockablePane(dpid);
+
+                //Conmutamos su estado
+                if (dp.IsShown() == false)
+                    dp.Show();
+
+                else
+
+                    dp.Hide();
+
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+                return Result.Failed;
+            }
+
+
 
             return Result.Succeeded;
         }

@@ -51,7 +51,11 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -59,24 +63,13 @@
     <Compile Include="Command.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_0_CintaDeOpciones\_0_CintaDeOpciones.cs" />
-    <Compile Include="_1_Paneles_WPF_Acoplables\Experimento_WPF_Boton_1_2_3_4.cs" />
+    <Compile Include="_1_Paneles_WPF_Acoplables\Request.cs" />
+    <Compile Include="_1_Paneles_WPF_Acoplables\RequestHandler.cs" />
     <Compile Include="_1_Paneles_WPF_Acoplables\WPF_Boton_1.cs" />
     <Compile Include="_1_Paneles_WPF_Acoplables\WPF_Boton_1_Formulario.xaml.cs">
       <DependentUpon>WPF_Boton_1_Formulario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="_1_Paneles_WPF_Acoplables\WPF_Boton_2.cs" />
-    <Compile Include="_1_Paneles_WPF_Acoplables\WPF_Boton_2_Formulario.xaml.cs">
-      <DependentUpon>WPF_Boton_2_Formulario.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="_1_Paneles_WPF_Acoplables\WPF_Boton_3.cs" />
-    <Compile Include="_1_Paneles_WPF_Acoplables\WPF_Boton_3_Formulario.xaml.cs">
-      <DependentUpon>WPF_Boton_3_Formulario.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="_1_Paneles_WPF_Acoplables\WPF_Boton_4.cs" />
-    <Compile Include="_1_Paneles_WPF_Acoplables\WPF_Boton_4_Formulario.xaml.cs">
-      <DependentUpon>WPF_Boton_4_Formulario.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="_2_Funciones_En_Desarrollo\Funciones_En_Desarrollo.cs" />
+    <Compile Include="_01_Funciones_En_Desarrollo\Funciones_En_Desarrollo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CintaDeOpciones_Revit.addin" />
@@ -98,18 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="_1_Paneles_WPF_Acoplables\WPF_Boton_1_Formulario.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="_1_Paneles_WPF_Acoplables\WPF_Boton_2_Formulario.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="_1_Paneles_WPF_Acoplables\WPF_Boton_3_Formulario.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="_1_Paneles_WPF_Acoplables\WPF_Boton_4_Formulario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
