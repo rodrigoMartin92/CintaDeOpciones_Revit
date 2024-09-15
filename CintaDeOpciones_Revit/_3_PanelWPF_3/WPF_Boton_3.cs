@@ -1,5 +1,4 @@
-﻿#region Namespaces
-using Autodesk.Revit.Attributes;
+﻿using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System;
@@ -15,12 +14,11 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
-#endregion
 
-namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
+namespace CintaDeOpciones_Revit._3_PanelWPF_3
 {
     [Transaction(TransactionMode.Manual)]
-    public class WPF_Boton_1 : IExternalCommand
+    public class WPF_Boton_3 : IExternalCommand
     {
         public Result Execute(
           ExternalCommandData commandData,

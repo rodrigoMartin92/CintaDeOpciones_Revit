@@ -4,9 +4,16 @@ using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Events;
-using CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables;
 using System;
 using System.Collections.Generic;
+
+using CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables;
+using CintaDeOpciones_Revit._1_PanelWPF_1;
+using CintaDeOpciones_Revit._2_PanelWPF_2;
+using CintaDeOpciones_Revit._3_PanelWPF_3;
+using CintaDeOpciones_Revit._4_PanelWPF_4;
+
+
 
 namespace CintaDeOpciones_Revit
 {
@@ -22,6 +29,9 @@ namespace CintaDeOpciones_Revit
 
         //Instancia del formulario del panel
         internal WPF_Boton_1_Formulario WPF_Boton_1_Formulario = null;
+        internal WPF_Boton_2_Formulario WPF_Boton_2_Formulario = null;
+        internal WPF_Boton_3_Formulario WPF_Boton_3_Formulario = null;
+        internal WPF_Boton_4_Formulario WPF_Boton_4_Formulario = null;
 
 
         public Result OnStartup(UIControlledApplication application)

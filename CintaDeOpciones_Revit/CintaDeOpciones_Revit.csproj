@@ -63,13 +63,25 @@
     <Compile Include="Command.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_0_CintaDeOpciones\_0_CintaDeOpciones.cs" />
-    <Compile Include="_1_Paneles_WPF_Acoplables\Request.cs" />
-    <Compile Include="_1_Paneles_WPF_Acoplables\RequestHandler.cs" />
-    <Compile Include="_1_Paneles_WPF_Acoplables\WPF_Boton_1.cs" />
-    <Compile Include="_1_Paneles_WPF_Acoplables\WPF_Boton_1_Formulario.xaml.cs">
+    <Compile Include="_001_Paneles_WPF_Acoplables\Request.cs" />
+    <Compile Include="_001_Paneles_WPF_Acoplables\RequestHandler.cs" />
+    <Compile Include="_01_Funciones_En_Desarrollo\Funciones_En_Desarrollo.cs" />
+    <Compile Include="_1_PanelWPF_1\WPF_Boton_1.cs" />
+    <Compile Include="_1_PanelWPF_1\WPF_Boton_1_Formulario.xaml.cs">
       <DependentUpon>WPF_Boton_1_Formulario.xaml</DependentUpon>
     </Compile>
-    <Compile Include="_01_Funciones_En_Desarrollo\Funciones_En_Desarrollo.cs" />
+    <Compile Include="_2_PanelWPF_2\WPF_Boton_2.cs" />
+    <Compile Include="_2_PanelWPF_2\WPF_Boton_2_Formulario.xaml.cs">
+      <DependentUpon>WPF_Boton_2_Formulario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_3_PanelWPF_3\WPF_Boton_3.cs" />
+    <Compile Include="_3_PanelWPF_3\WPF_Boton_3_Formulario.xaml.cs">
+      <DependentUpon>WPF_Boton_3_Formulario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="_4_PanelWPF_4\WPF_Boton_4.cs" />
+    <Compile Include="_4_PanelWPF_4\WPF_Boton_4_Formulario.xaml.cs">
+      <DependentUpon>WPF_Boton_4_Formulario.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="CintaDeOpciones_Revit.addin" />
@@ -90,11 +102,24 @@
     <EmbeddedResource Include="Imagenes\Iconos\_1Azul.png" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="_1_Paneles_WPF_Acoplables\WPF_Boton_1_Formulario.xaml">
+    <Page Include="_1_PanelWPF_1\WPF_Boton_1_Formulario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="_2_PanelWPF_2\WPF_Boton_2_Formulario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="_3_PanelWPF_3\WPF_Boton_3_Formulario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="_4_PanelWPF_4\WPF_Boton_4_Formulario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if exist "$(AppData)\Autodesk\REVIT\Addins\2023" copy "$(ProjectDir)*.addin" "$(AppData)\Autodesk\REVIT\Addins\2023"
