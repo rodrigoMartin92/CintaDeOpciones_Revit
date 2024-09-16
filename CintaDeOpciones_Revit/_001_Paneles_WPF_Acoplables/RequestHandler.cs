@@ -38,6 +38,28 @@ namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
                         {
                             return;  // no request at this time -> we can leave immediately
                         }
+                    case RequestId.EventoManual_1:
+                        {
+                            // Otros eventos que se pueden agregar a futuro
+                            TaskDialog.Show("Evento 1", "Evento 1");
+
+                            break;
+                        }
+                    case RequestId.EventoManual_2:
+                        {
+                            // Otros eventos que se pueden agregar a futuro
+                            TaskDialog.Show("Evento 2", "Evento 2");
+
+                            break;
+                        }
+                    case RequestId.EventoManual_3:
+                        {
+                            // Otros eventos que se pueden agregar a futuro
+                            TaskDialog.Show("Evento 3", "Evento 3");
+
+                            break;
+                        }
+
                     default:
                         {
                             break;

@@ -25,8 +25,14 @@ namespace CintaDeOpciones_Revit._2_Funciones_En_Desarrollo
             Application app = uiapp.Application;
             Document doc = uidoc.Document;
 
+            Funcion_A_Definir();
 
             return Result.Succeeded;
         }
+        public void Funcion_A_Definir()
+        {
+            TaskDialog.Show("Funcion_A_Definir", "Funcion_A_Definir");
+        }
     }
+
 }

@@ -55,5 +55,15 @@ namespace CintaDeOpciones_Revit._1_PanelWPF_1
 
 
         }
+        private void MakeRequest(RequestId request)
+        {
+            m_Handler.Request.Make(request);
+            m_ExEvent.Raise();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MakeRequest(RequestId.EventoManual_1);
+        }
     }
 }

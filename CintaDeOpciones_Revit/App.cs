@@ -12,113 +12,82 @@ using CintaDeOpciones_Revit._1_PanelWPF_1;
 using CintaDeOpciones_Revit._2_PanelWPF_2;
 using CintaDeOpciones_Revit._3_PanelWPF_3;
 using CintaDeOpciones_Revit._4_PanelWPF_4;
+using System.Windows;
 
 
 
 namespace CintaDeOpciones_Revit
 {
     internal class App : IExternalApplication
-
     {
-        // class instance
         internal static App thisApp = null;
-
-        //Instancias de UIApplication y del Document
         internal UIApplication uiapp = null;
         internal Document doc = null;
 
-        //Instancia del formulario del panel
         internal WPF_Boton_1_Formulario WPF_Boton_1_Formulario = null;
         internal WPF_Boton_2_Formulario WPF_Boton_2_Formulario = null;
         internal WPF_Boton_3_Formulario WPF_Boton_3_Formulario = null;
         internal WPF_Boton_4_Formulario WPF_Boton_4_Formulario = null;
 
-
         public Result OnStartup(UIControlledApplication application)
         {
             try
             {
-                // Inicialización de la cinta de opciones
                 _0_CintaDeOpciones._0_CintaDeOpciones.CrearCintaDeOpciones(application);
+                thisApp = this;
 
-                thisApp = this;  // static access to this application instance
+                application.ViewActivated += OnViewActivated;
 
-                try
-                {
-                    //Registramos OnViewActivated
-                    application.ViewActivated += new EventHandler<ViewActivatedEventArgs>(OnViewActivated);
-                }
-                catch (Exception)
-                {
-                    return Result.Failed;
-                }
-
-                // A new handler to handle request posting by the dialog
                 RequestHandler handler = new RequestHandler();
-
-                // External Event for the dialog to use (to post requests)
                 ExternalEvent exEvent = ExternalEvent.Create(handler);
-                WPF_Boton_1_Formulario = new WPF_Boton_1_Formulario(exEvent, handler);
 
-                //Datos de posicionamiento del Panel
-                DockablePaneProviderData data = new DockablePaneProviderData
-                {
-                    FrameworkElement = WPF_Boton_1_Formulario as System.Windows.FrameworkElement,
-                    InitialState = new DockablePaneState
-                    {
-                        DockPosition = DockPosition.Tabbed,//En una pestaña
-                        TabBehind = DockablePanes.BuiltInDockablePanes.ProjectBrowser//Anclado con el Panel Propiedades
-                    }
-                };
+                InitializeFormularios(exEvent, handler);
 
-                //Registramos el Panel
-                try
-                {
-                    //Guid unico para toda la vida del plugin
-                    thisApp.RegisterDockableWindow(application, (new Guid("{77C963CE-B7CA-426A-8D51-6E8254D21199}")));
-                }
-                catch (Exception ex)
-                {
-                    TaskDialog.Show("Revit API Manual", ex.Message);
-                }
-
+                RegisterDockableWindows(application);
             }
             catch (Exception ex)
             {
                 TaskDialog.Show("Error CrearCintaDeOpciones", "Error en función CrearCintaDeOpciones \n" + ex.Message);
+                return Result.Failed;
             }
+
             return Result.Succeeded;
         }
 
         public Result OnShutdown(UIControlledApplication application)
         {
-            try
-            {
-                application.ViewActivated -= new EventHandler<ViewActivatedEventArgs>(OnViewActivated);
-            }
-            catch (Exception ex)
-            {
-                TaskDialog.Show("Error CrearCintaDeOpciones", "Error en función CrearCintaDeOpciones \n" + ex.Message);
-            }
+            application.ViewActivated -= OnViewActivated;
             return Result.Succeeded;
         }
 
-        public void RegisterDockableWindow(UIControlledApplication application, Guid mainPageGuid)
+        private void InitializeFormularios(ExternalEvent exEvent, RequestHandler handler)
         {
-            //Creamos el DockablePaneId con el GUID
-            DockablePaneId sm_UserDockablePaneId = new DockablePaneId(mainPageGuid);
-
-            //Registramos el Panel en la Application, Guid, nombre y formulario
-            application.RegisterDockablePane(sm_UserDockablePaneId, "WPF_Boton_1_Formulario", WPF_Boton_1_Formulario);
+            WPF_Boton_1_Formulario = new WPF_Boton_1_Formulario(exEvent, handler);
+            WPF_Boton_2_Formulario = new WPF_Boton_2_Formulario(exEvent, handler);
+            WPF_Boton_3_Formulario = new WPF_Boton_3_Formulario(exEvent, handler);
+            WPF_Boton_4_Formulario = new WPF_Boton_4_Formulario(exEvent, handler);
         }
+
+        private void RegisterDockableWindows(UIControlledApplication application)
+        {
+            thisApp.RegisterDockableWindow(application, new Guid("{6f6fe7f8-1f07-4189-8692-7064b5020450}"), "WPF_Boton_1_Formulario", WPF_Boton_1_Formulario);
+            thisApp.RegisterDockableWindow(application, new Guid("{2eae0d32-b6d3-4dc8-b297-d887a5bbe635}"), "WPF_Boton_2_Formulario", WPF_Boton_2_Formulario);
+            thisApp.RegisterDockableWindow(application, new Guid("{4cea362d-1644-4afe-8eb6-e01122d351a8}"), "WPF_Boton_3_Formulario", WPF_Boton_3_Formulario);
+            thisApp.RegisterDockableWindow(application, new Guid("{2cf49925-b5cc-476f-afff-93ae99de48b5}"), "WPF_Boton_4_Formulario", WPF_Boton_4_Formulario);
+        }
+
+        public void RegisterDockableWindow<T>(UIControlledApplication application, Guid mainPageGuid, string WPF_Boton, T WPF_Formulario) where T : FrameworkElement
+        {
+            DockablePaneId sm_UserDockablePaneId = new DockablePaneId(mainPageGuid);
+            application.RegisterDockablePane(sm_UserDockablePaneId, WPF_Boton, (IDockablePaneProvider)WPF_Formulario);
+        }
+
         void OnViewActivated(object sender, ViewActivatedEventArgs e)
         {
-            //Actualizamos las instancias de UIApplication y del Document
             uiapp = sender as UIApplication;
             doc = e.Document;
-
         }
-
     }
+
 }
 

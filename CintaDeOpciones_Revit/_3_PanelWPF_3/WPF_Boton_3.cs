@@ -33,7 +33,7 @@ namespace CintaDeOpciones_Revit._3_PanelWPF_3
             try
             {
                 //Construimos el DockablePaneId con el mismo GUID. Considere establecer una const
-                DockablePaneId dpid = new DockablePaneId(new Guid("{77C963CE-B7CA-426A-8D51-6E8254D21199}"));
+                DockablePaneId dpid = new DockablePaneId(new Guid("{4cea362d-1644-4afe-8eb6-e01122d351a8}"));
 
                 //Recuperamos el Panel desde la UIApplication
                 DockablePane dp = uiapp.GetDockablePane(dpid);

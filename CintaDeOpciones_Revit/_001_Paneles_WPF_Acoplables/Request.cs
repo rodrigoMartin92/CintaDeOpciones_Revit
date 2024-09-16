@@ -8,13 +8,12 @@ using System.Threading.Tasks;
 
 namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
 {
-    /// <summary>
-    ///   A list of requests the dialog has available
-    /// </summary>
-    /// 
     public enum RequestId : int
     {
         None = 0,
+        EventoManual_1,
+        EventoManual_2,
+        EventoManual_3,
     }
 
     public class Request
