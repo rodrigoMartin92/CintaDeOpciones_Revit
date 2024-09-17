@@ -20,6 +20,7 @@ using Autodesk.Revit.ApplicationServices;
 using Autodesk.Revit.UI.Selection;
 using System.Diagnostics;
 
+
 using CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables;
 
 namespace CintaDeOpciones_Revit._2_PanelWPF_2
@@ -53,7 +54,32 @@ namespace CintaDeOpciones_Revit._2_PanelWPF_2
             m_Handler = handler;
             m_ExEvent = exEvent;
 
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Aquí va el código que se ejecutará al cargar la ventana
+            MessageBox.Show("La ventana se ha cargado correctamente.");
+        }
 
+        private void MakeRequest(RequestId request)
+        {
+            m_Handler.Request.Make(request);
+            m_ExEvent.Raise();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MakeRequest(RequestId.EventoManual_1);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MakeRequest(RequestId.Agregar_Categorias);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MakeRequest(RequestId.Agregar_Categorias_Existentes);
         }
     }
 }

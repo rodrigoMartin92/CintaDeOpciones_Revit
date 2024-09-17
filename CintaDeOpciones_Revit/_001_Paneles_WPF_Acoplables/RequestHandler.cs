@@ -7,6 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CintaDeOpciones_Revit;
+using CintaDeOpciones_Revit._2_Funciones_En_Desarrollo;
+using System.Reflection.Emit;
+using CintaDeOpciones_Revit._2_PanelWPF_2;
+
+
 namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
 {
 
@@ -27,9 +32,14 @@ namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
         {
             return "R2022 External Event Sample";
         }
-
+        
         public void Execute(UIApplication uiapp)
         {
+
+            UIDocument uidoc = uiapp.ActiveUIDocument;
+            Autodesk.Revit.ApplicationServices.Application app = uiapp.Application;
+            Document doc = uidoc.Document;
+
             try
             {
                 switch (Request.Take())
@@ -40,25 +50,100 @@ namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
                         }
                     case RequestId.EventoManual_1:
                         {
-                            // Otros eventos que se pueden agregar a futuro
-                            TaskDialog.Show("Evento 1", "Evento 1");
+
+                            Funciones_En_Desarrollo.Funcion_A_Definir();
 
                             break;
                         }
                     case RequestId.EventoManual_2:
                         {
                             // Otros eventos que se pueden agregar a futuro
-                            TaskDialog.Show("Evento 2", "Evento 2");
+                            Funciones_En_Desarrollo.Funcion_A_Definir_2();
 
                             break;
                         }
                     case RequestId.EventoManual_3:
                         {
                             // Otros eventos que se pueden agregar a futuro
-                            TaskDialog.Show("Evento 3", "Evento 3");
+                            Funciones_En_Desarrollo.Funcion_A_Definir_3();
 
                             break;
                         }
+                    case RequestId.Agregar_Categorias:
+                        {
+
+                            try
+                            {
+                                IList<Category> Lista_Categorias = new List<Category>();
+                                IList<string> Lista_Categorias_Nombres = new List<string>();
+
+                                Categories categories = doc.Settings.Categories;
+
+                                foreach (Category category in categories)
+                                {
+                                    Lista_Categorias.Add(category);
+                                    Lista_Categorias_Nombres.Add(category.Name);
+                                }
+
+                                // Ordenar la lista alfabéticamente
+                                List<string> sortedCategoryNames = Lista_Categorias_Nombres.ToList();
+                                sortedCategoryNames.Sort();
+
+                                // (Opcional) Mostrar las categorías en un cuadro de diálogo
+                                TaskDialog.Show("Categorias", String.Join("\n", sortedCategoryNames));
+
+                            }
+                            catch (Exception ex)
+                            {
+                                TaskDialog.Show("TodasLasCategorias", ex.ToString());
+                            }
+
+                            break;
+                        }
+
+                    case RequestId.Agregar_Categorias_Existentes:
+                        {
+
+                            try
+                            {
+                                IList<Category> Lista_Categorias = new List<Category>();
+                                IList<string> Lista_Categorias_Nombres = new List<string>();
+
+                                // Crear un filtro para obtener todas las instancias de elementos en el modelo
+                                FilteredElementCollector collector = new FilteredElementCollector(doc);
+                                ICollection<Element> allElements = collector.WhereElementIsNotElementType().ToElements();
+
+                                HashSet<Category> categoriasConInstancias = new HashSet<Category>();
+
+                                // Iterar sobre todos los elementos y agregar sus categorías
+                                foreach (Element elem in allElements)
+                                {
+                                    Category categoria = elem.Category;
+
+                                    if (categoria != null && !categoriasConInstancias.Contains(categoria))
+                                    {
+                                        categoriasConInstancias.Add(categoria);
+                                        Lista_Categorias.Add(categoria);
+                                        Lista_Categorias_Nombres.Add(categoria.Name);
+                                    }
+                                }
+
+                                // Ordenar la lista alfabéticamente
+                                List<string> sortedCategoryNames = Lista_Categorias_Nombres.ToList();
+                                sortedCategoryNames.Sort();
+
+                                // (Opcional) Mostrar las categorías en un cuadro de diálogo
+                                TaskDialog.Show("Categorias con instancias", String.Join("\n", sortedCategoryNames));
+                            }
+                            catch (Exception ex)
+                            {
+                                TaskDialog.Show("Error", ex.ToString());
+                            }
+
+
+                            break;
+                        }
+
 
                     default:
                         {

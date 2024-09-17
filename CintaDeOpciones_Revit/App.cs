@@ -21,7 +21,10 @@ namespace CintaDeOpciones_Revit
     internal class App : IExternalApplication
     {
         internal static App thisApp = null;
+
         internal UIApplication uiapp = null;
+        internal UIDocument uidoc = null;
+        internal Autodesk.Revit.ApplicationServices.Application app = null;
         internal Document doc = null;
 
         internal WPF_Boton_1_Formulario WPF_Boton_1_Formulario = null;
