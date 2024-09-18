@@ -33,15 +33,15 @@ namespace CintaDeOpciones_Revit._2_Funciones_En_Desarrollo
         }
         public static void Funcion_A_Definir()
         {
-            TaskDialog.Show("Funcion_A_Definir", "Funcion_A_Definir");
+            TaskDialog.Show("Funcion_A_Definir 1", "Funcion_A_Definir 1");
         }
         public static void Funcion_A_Definir_2()
         {
-            TaskDialog.Show("Funcion_A_Definir", "Funcion_A_Definir");
+            TaskDialog.Show("Funcion_A_Definir 2", "Funcion_A_Definir 2");
         }
         public static void Funcion_A_Definir_3()
         {
-            TaskDialog.Show("Funcion_A_Definir", "Funcion_A_Definir");
+            TaskDialog.Show("Funcion_A_Definir 3", "Funcion_A_Definir 3");
         }
 
         public static List<string> Agregar_Categorias(Document doc)

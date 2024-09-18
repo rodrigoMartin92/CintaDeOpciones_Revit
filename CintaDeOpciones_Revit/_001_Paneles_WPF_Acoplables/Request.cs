@@ -15,7 +15,8 @@ namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
         EventoManual_2,
         EventoManual_3,
         Agregar_Categorias,
-        Agregar_Categorias_Existentes,
+        Agregar_Categorias_Existentes_FamilyType,
+        Agregar_Categorias_Existentes_Instancias,
     }
 
     public class Request

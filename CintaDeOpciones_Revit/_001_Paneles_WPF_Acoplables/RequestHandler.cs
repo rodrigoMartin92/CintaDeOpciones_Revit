@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CintaDeOpciones_Revit;
-using CintaDeOpciones_Revit._2_Funciones_En_Desarrollo;
 using System.Reflection.Emit;
-using CintaDeOpciones_Revit._2_PanelWPF_2;
+
+using CintaDeOpciones_Revit._2_Funciones_En_Desarrollo;
 
 
 namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
@@ -50,7 +50,7 @@ namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
                         }
                     case RequestId.EventoManual_1:
                         {
-
+                            TaskDialog.Show("EventoManual_1", "EventoManual_1");
                             Funciones_En_Desarrollo.Funcion_A_Definir();
 
                             break;
@@ -74,23 +74,7 @@ namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
 
                             try
                             {
-                                IList<Category> Lista_Categorias = new List<Category>();
-                                IList<string> Lista_Categorias_Nombres = new List<string>();
 
-                                Categories categories = doc.Settings.Categories;
-
-                                foreach (Category category in categories)
-                                {
-                                    Lista_Categorias.Add(category);
-                                    Lista_Categorias_Nombres.Add(category.Name);
-                                }
-
-                                // Ordenar la lista alfabéticamente
-                                List<string> sortedCategoryNames = Lista_Categorias_Nombres.ToList();
-                                sortedCategoryNames.Sort();
-
-                                // (Opcional) Mostrar las categorías en un cuadro de diálogo
-                                TaskDialog.Show("Categorias", String.Join("\n", sortedCategoryNames));
 
                             }
                             catch (Exception ex)
@@ -101,7 +85,23 @@ namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
                             break;
                         }
 
-                    case RequestId.Agregar_Categorias_Existentes:
+                    case RequestId.Agregar_Categorias_Existentes_FamilyType:
+                        {
+
+                            try
+                            {
+
+                            }
+                            catch (Exception ex)
+                            {
+                                TaskDialog.Show("Error", ex.ToString());
+                            }
+
+
+                            break;
+                        }
+
+                    case RequestId.Agregar_Categorias_Existentes_Instancias:
                         {
 
                             try
@@ -143,7 +143,6 @@ namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
 
                             break;
                         }
-
 
                     default:
                         {
