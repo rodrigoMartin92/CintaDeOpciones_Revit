@@ -11,6 +11,7 @@ using System.Runtime.Serialization;
 
 using CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables;
 using CintaDeOpciones_Revit._1_PanelWPF_1;
+using CintaDeOpciones_Revit._2_PanelWPF_2;
 
 
 namespace CintaDeOpciones_Revit
@@ -25,6 +26,7 @@ namespace CintaDeOpciones_Revit
         internal Document doc = null;
 
         internal static WPF_Boton_1_Formulario WPF_Boton_1_Formulario { get; set; }
+        internal static WPF_Boton_2_Formulario WPF_Boton_2_Formulario { get; set; }
 
         public Result OnStartup(UIControlledApplication application)
         {
@@ -42,7 +44,7 @@ namespace CintaDeOpciones_Revit
                     doc = e.Document;
 
                     // Activa los eventos que permiten acotar automaticamente o re-acotar automaticamente
-                    uiapp.Application.DocumentChanged += new EventHandler<Autodesk.Revit.DB.Events.DocumentChangedEventArgs>(_02_Eventos_En_Desarrollo.Funciones_Eventos_1.Evento_TD);
+                    uiapp.Application.DocumentChanged += new EventHandler<Autodesk.Revit.DB.Events.DocumentChangedEventArgs>(_02_Funciones_Eventos.Funciones_Eventos_1.Eventos_CintaDeOpciones);
                 }; 
 
                 RequestHandler handler = new RequestHandler(); 
@@ -50,11 +52,13 @@ namespace CintaDeOpciones_Revit
 
 
                 WPF_Boton_1_Formulario = new WPF_Boton_1_Formulario(exEvent, handler);
+                WPF_Boton_2_Formulario = new WPF_Boton_2_Formulario(exEvent, handler);
 
                 // Configuración del DockablePaneProviderData
                 DockablePaneProviderData data = new DockablePaneProviderData
                 {
                     FrameworkElement = WPF_Boton_1_Formulario as System.Windows.FrameworkElement,
+
                     InitialState = new DockablePaneState
                     {
                         DockPosition = DockPosition.Tabbed,
@@ -63,7 +67,8 @@ namespace CintaDeOpciones_Revit
                 };
 
                 // Registro de la ventana acoplable
-                RegisterDockableWindow(application, new Guid("{6f6fe7f8-1f07-4189-8692-7064b5020450}"), WPF_Boton_1_Formulario);
+                RegisterDockableWindow(application, new Guid("{6f6fe7f8-1f07-4189-8692-7064b5020450}"), WPF_Boton_1_Formulario, "Formulario WPF 1");
+                RegisterDockableWindow(application, new Guid("{2eae0d32-b6d3-4dc8-b297-d887a5bbe635}"), WPF_Boton_2_Formulario, "Formulario WPF 2");
 
             }
             catch (Exception ex)
@@ -84,7 +89,7 @@ namespace CintaDeOpciones_Revit
             if (uiapp != null)
             {
                 // Desactiva los eventos que permiten acotar automaticamente cuando se cierra Revit
-                uiapp.Application.DocumentChanged -= new EventHandler<Autodesk.Revit.DB.Events.DocumentChangedEventArgs>(_02_Eventos_En_Desarrollo.Funciones_Eventos_1.Evento_TD);
+                uiapp.Application.DocumentChanged -= new EventHandler<Autodesk.Revit.DB.Events.DocumentChangedEventArgs>(_02_Funciones_Eventos.Funciones_Eventos_1.Eventos_CintaDeOpciones);
             }
             return Result.Succeeded;
         }
@@ -104,14 +109,14 @@ namespace CintaDeOpciones_Revit
             }
         }
 
-        public void RegisterDockableWindow(UIControlledApplication application, Guid mainPageGuid, IDockablePaneProvider PaneProvider)
+        public void RegisterDockableWindow(UIControlledApplication application, Guid mainPageGuid, IDockablePaneProvider PaneProvider, string Nombre)
         {
 
             try
             {
                 // Crear y registrar el DockablePaneId
                 DockablePaneId sm_UserDockablePaneId = new DockablePaneId(mainPageGuid);
-                application.RegisterDockablePane(sm_UserDockablePaneId, "WPF_Boton", PaneProvider);
+                application.RegisterDockablePane(sm_UserDockablePaneId, Nombre, PaneProvider);
             }
             catch (Exception ex)
             {

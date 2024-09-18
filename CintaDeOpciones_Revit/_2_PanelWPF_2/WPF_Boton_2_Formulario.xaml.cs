@@ -22,9 +22,9 @@ using System.Diagnostics;
 
 using CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables;
 
-namespace CintaDeOpciones_Revit._1_PanelWPF_1
+namespace CintaDeOpciones_Revit._2_PanelWPF_2
 {
-    public partial class WPF_Boton_1_Formulario : Page, IDockablePaneProvider
+    public partial class WPF_Boton_2_Formulario : Page, IDockablePaneProvider
     {
         #region dock Seccion añadida al SDK
         public void SetupDockablePane(DockablePaneProviderData data)
@@ -46,7 +46,7 @@ namespace CintaDeOpciones_Revit._1_PanelWPF_1
         Autodesk.Revit.ApplicationServices.Application app;
         Autodesk.Revit.DB.Document doc;
 
-        public WPF_Boton_1_Formulario(ExternalEvent exEvent, RequestHandler handler)
+        public WPF_Boton_2_Formulario(ExternalEvent exEvent, RequestHandler handler)
         {
             InitializeComponent();
 

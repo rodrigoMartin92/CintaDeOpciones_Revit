@@ -26,11 +26,11 @@ using System.Diagnostics;
 using CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables;
 
 
-namespace CintaDeOpciones_Revit._02_Eventos_En_Desarrollo
+namespace CintaDeOpciones_Revit._02_Funciones_Eventos
 {
     internal class Funciones_Eventos_1
     {
-        internal static void Evento_TD(object sender, Autodesk.Revit.DB.Events.DocumentChangedEventArgs e)
+        internal static void Eventos_CintaDeOpciones(object sender, Autodesk.Revit.DB.Events.DocumentChangedEventArgs e)
         {
             try
             {
@@ -40,9 +40,7 @@ namespace CintaDeOpciones_Revit._02_Eventos_En_Desarrollo
                 {
                     App.WPF_Boton_1_Formulario.MakeRequest(RequestId.Agregar_Categorias_Existentes_Instancias);
                 }
-                
-
-                TaskDialog.Show("Evento_TD_ 1", "Evento_TD _1");
+                TaskDialog.Show("Eventos_CintaDeOpciones", "Eventos_CintaDeOpciones");
             }
             catch (Exception ex)
             {
