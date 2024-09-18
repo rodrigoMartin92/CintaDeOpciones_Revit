@@ -38,7 +38,7 @@ namespace CintaDeOpciones_Revit._02_Eventos_En_Desarrollo
 
                 if (App.WPF_Boton_1_Formulario != null)
                 {
-                    App.WPF_Boton_1_Formulario.MakeRequest(RequestId.EventoManual_1);
+                    App.WPF_Boton_1_Formulario.MakeRequest(RequestId.Agregar_Categorias_Existentes_Instancias);
                 }
                 
 

@@ -10,6 +10,7 @@ using CintaDeOpciones_Revit;
 using System.Reflection.Emit;
 
 using CintaDeOpciones_Revit._2_Funciones_En_Desarrollo;
+using CintaDeOpciones_Revit._1_PanelWPF_1;
 
 
 namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
@@ -51,59 +52,22 @@ namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
                     case RequestId.EventoManual_1:
                         {
                             TaskDialog.Show("EventoManual_1", "EventoManual_1");
-                            Funciones_En_Desarrollo.Funcion_A_Definir();
+                            _2_Funciones_WPF_1.Funcion_A_Definir();
 
                             break;
                         }
-                    case RequestId.EventoManual_2:
+
+                    case RequestId.EventoAutomatico_1:
                         {
-                            // Otros eventos que se pueden agregar a futuro
-                            Funciones_En_Desarrollo.Funcion_A_Definir_2();
-
-                            break;
-                        }
-                    case RequestId.EventoManual_3:
-                        {
-                            // Otros eventos que se pueden agregar a futuro
-                            Funciones_En_Desarrollo.Funcion_A_Definir_3();
-
-                            break;
-                        }
-                    case RequestId.Agregar_Categorias:
-                        {
-
-                            try
-                            {
-
-
-                            }
-                            catch (Exception ex)
-                            {
-                                TaskDialog.Show("TodasLasCategorias", ex.ToString());
-                            }
+                            TaskDialog.Show("EventoManual_1", "EventoManual_1");
+                            _2_Funciones_WPF_1.Funcion_A_Definir();
 
                             break;
                         }
 
-                    case RequestId.Agregar_Categorias_Existentes_FamilyType:
-                        {
-
-                            try
-                            {
-
-                            }
-                            catch (Exception ex)
-                            {
-                                TaskDialog.Show("Error", ex.ToString());
-                            }
-
-
-                            break;
-                        }
 
                     case RequestId.Agregar_Categorias_Existentes_Instancias:
                         {
-
                             try
                             {
                                 IList<Category> Lista_Categorias = new List<Category>();

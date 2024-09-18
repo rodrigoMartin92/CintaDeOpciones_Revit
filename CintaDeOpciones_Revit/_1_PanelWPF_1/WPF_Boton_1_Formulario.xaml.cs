@@ -53,7 +53,6 @@ namespace CintaDeOpciones_Revit._1_PanelWPF_1
             m_Handler = handler;
             m_ExEvent = exEvent;
 
-
         }
         public void MakeRequest(RequestId request)
         {
@@ -64,16 +63,6 @@ namespace CintaDeOpciones_Revit._1_PanelWPF_1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MakeRequest(RequestId.EventoManual_1);
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            MakeRequest(RequestId.EventoManual_2);
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            MakeRequest(RequestId.EventoManual_3);
         }
     }
 }

@@ -62,16 +62,16 @@
     <Compile Include="App.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="_02_Eventos_En_Desarrollo\Funciones_Eventos_1.cs" />
+    <Compile Include="_02_Funciones_Eventos\Funciones_Eventos_1.cs" />
     <Compile Include="_0_CintaDeOpciones\00_GUIDs.cs" />
     <Compile Include="_0_CintaDeOpciones\_0_CintaDeOpciones.cs" />
     <Compile Include="_001_Paneles_WPF_Acoplables\Request.cs" />
     <Compile Include="_001_Paneles_WPF_Acoplables\RequestHandler.cs" />
-    <Compile Include="_01_Funciones_En_Desarrollo\Funciones_En_Desarrollo.cs" />
     <Compile Include="_1_PanelWPF_1\WPF_Boton_1.cs" />
     <Compile Include="_1_PanelWPF_1\WPF_Boton_1_Formulario.xaml.cs">
       <DependentUpon>WPF_Boton_1_Formulario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="_1_PanelWPF_1\_2_Funciones_WPF_1.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CintaDeOpciones_Revit.addin" />

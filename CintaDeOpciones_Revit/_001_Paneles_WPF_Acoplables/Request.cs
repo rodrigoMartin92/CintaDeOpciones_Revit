@@ -12,10 +12,7 @@ namespace CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables
     {
         None = 0,
         EventoManual_1,
-        EventoManual_2,
-        EventoManual_3,
-        Agregar_Categorias,
-        Agregar_Categorias_Existentes_FamilyType,
+        EventoAutomatico_1,
         Agregar_Categorias_Existentes_Instancias,
     }
 
