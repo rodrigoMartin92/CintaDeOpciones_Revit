@@ -13,6 +13,9 @@ using CintaDeOpciones_Revit._1_Paneles_WPF_Acoplables;
 using CintaDeOpciones_Revit._1_PanelWPF_1;
 using CintaDeOpciones_Revit._2_PanelWPF_2;
 
+// CARPETAS DONDE ESTA INSTALADO EL PLUG IN
+// C:\Users\ASUS\AppData\Roaming\Autodesk\Revit\Addins\2023
+// 
 
 namespace CintaDeOpciones_Revit
 {
